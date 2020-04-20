@@ -114,4 +114,19 @@ describe('Testing complexity service', () => {
       expect(result).toEqual({ sentence_ld: [0.67, 0.63], overall_ld: 0.64 })
     })
   })
+
+  describe('Edge case testing', () => {
+    const firstEdge = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at urna a dolor finibus eleifend. Nullam dictum mauris non arcu scelerisque, vitae dictum neque hendrerit. Nullam egestas quam ac ipsum mollis porttitor. Praesent viverra fermentum magna quis dignissim. Aenean vel viverra ipsum, et efficitur leo. Phasellus turpis dui, aliquam non vulputate id, faucibus eu urna. Etiam vestibulum sodales neque, non imperdiet mauris aliquam vitae. Donec in volutpat felis. Sed mollis dapibus est eget euismod. Nullam maximus est quis ligula hendrerit maximus. Fusce maximus sodales arcu sit amet consectetur. Praesent varius diam at vehicula facilisis. Aenean vel tempus sapien. Orci varius .'
+
+    it('should work with first edge case', async () => {
+      lexicalService.validate(firstEdge)
+      const result = lexicalService.getRatio(firstEdge, nonLexical)
+      expect(result).toEqual({ overall_ld: 0.96 })
+      const verboseResult = lexicalService.getRatioVerbose(firstEdge, nonLexical)
+      expect(verboseResult).toEqual({
+        sentence_ld: [1, 0.71, 1, 1, 1, 1, 1, 1, 0.75, 1, 1, 1, 0.83, 1, 1],
+        overall_ld: 0.96
+      })
+    })
+  })
 })

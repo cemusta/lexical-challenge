@@ -3,9 +3,11 @@ const assert = require('assert').strict
 const validate = (input) => {
   assert.ok(input, 'input is missing')
 
-  const wordCount = input.split(' ').length
+  // looking at normalized word count instead.
+  const wordCount = normalize(input).split(' ').length
   assert.ok(wordCount <= 100, 'too many words')
 
+  // looking for real char lenght still.
   const charCount = input.length
   assert.ok(charCount <= 1000, 'input too long')
 
@@ -21,7 +23,6 @@ const getRatio = (input, nonLexical) => {
 
   // normalization: replace punctuation, remove extra spaces, trim and then lowercase
   const normalized = normalize(input).toLowerCase()
-  // assert.ok(input.length > 1, 'input is missing, after normalization')
 
   // tokenize
   const words = normalized.split(' ')
