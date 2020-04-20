@@ -9,16 +9,18 @@ const validate = (input) => {
   const charCount = input.length
   assert.ok(charCount <= 1000, 'input too long')
 
-  const normalized = input.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, ' ').replace(/\s+/g, ' ').trim()
+  const normalized = normalize(input)
   assert.ok(normalized.length > 0, 'input missing any word')
 }
+
+const normalize = (input) => input.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, ' ').replace(/\s+/g, ' ').trim()
 
 const getRatio = (input, nonLexical) => {
   assert.ok(input, 'input is missing')
   assert.ok(nonLexical, 'nonLexical is missing')
 
   // normalization: replace punctuation, remove extra spaces, trim and then lowercase
-  const normalized = input.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase()
+  const normalized = normalize(input).toLowerCase()
   // assert.ok(input.length > 1, 'input is missing, after normalization')
 
   // tokenize
@@ -38,9 +40,11 @@ const getRatioVerbose = (input, nonLexical) => {
   assert.ok(input, 'input is missing')
   assert.ok(nonLexical, 'nonLexical is missing')
 
-  const sentences = input.split('.')
+  const sentences = input.split('.').filter(x => normalize(x).length !== 0)
 
-  const res = sentences.map(x => getRatio(x, nonLexical).overall_ld)
+  const res = sentences.map(x => {
+    return getRatio(x, nonLexical).overall_ld
+  })
 
   const overall = getRatio(input, nonLexical).overall_ld
 
