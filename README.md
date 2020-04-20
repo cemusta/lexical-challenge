@@ -8,6 +8,12 @@ Mini api developed for a coding challenge for checking lexical analysis for any 
 
 Challenge required to store data in mongodb, so if you want to test mongo db part as well you need to provide a mongo connection to configs.
 
+## Deployed example
+
+Heres the link for deployed example working on google cloud app engine standard and mongodb atlas
+
+> https://lexical-challenge.ew.r.appspot.com
+
 
 ## How to run
 
