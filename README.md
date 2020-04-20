@@ -1,5 +1,6 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/cemusta/Sudoku-challenge/blob/master/LICENSE)
-[![CodeFactor](https://www.codefactor.io/repository/github/cemusta/lexical-challange/badge)](https://www.codefactor.io/repository/github/cemusta/lexical-challange)
+[![GitHub actions](https://github.com/cemusta/lexical-challenge/workflows/Node.js%20CI/badge.svg)](https://github.com/cemusta/lexical-challenge/actions)
+[![CodeFactor](https://www.codefactor.io/repository/github/cemusta/lexical-challenge/badge)](https://www.codefactor.io/repository/github/cemusta/lexical-challenge)
 
 # lexical-challenge
 
