@@ -10,8 +10,8 @@ module.exports = function (app) {
   const swaggerOptions = {
     swaggerDefinition: {
       info: {
-        description: 'Documentation for lexicon challange',
-        title: 'Lexicon Challenge API',
+        description: 'Swagger documentation for lexical challenge api',
+        title: 'Lexical Challenge API',
         version: '1.0.0'
       },
       produces: ['application/json', 'application/xml'],
@@ -20,7 +20,11 @@ module.exports = function (app) {
       tags: [
         {
           name: 'complexity',
-          description: 'Lexicon operations'
+          description: 'Lexical density operations'
+        },
+        {
+          name: 'dictionary',
+          description: 'Lexical density operations'
         }
       ]
     },

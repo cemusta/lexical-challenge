@@ -35,10 +35,14 @@ const seedData = async () => {
     return
   }
 
+  coll.createIndex({ data: 1 }, { unique: true })
+
   logger.info('db empty, starting seeding from default file...')
 
+  const date = new Date()
+
   let bulkUpdateOps = []
-  const entries = defaults.map(x => ({ data: x }))
+  const entries = defaults.map(x => ({ data: x, date }))
   entries.forEach(async doc => {
     bulkUpdateOps.push({ insertOne: { document: doc } })
 

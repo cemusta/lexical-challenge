@@ -1,5 +1,5 @@
 {
-  "name": "lexical-challange",
+  "name": "lexical-challenge",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:cemusta/lexical-challange.git"
+    "url": "git@github.com:cemusta/lexical-challenge.git"
   },
   "author": "",
   "license": "MIT",

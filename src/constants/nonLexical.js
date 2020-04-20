@@ -36,4 +36,4 @@ module.exports = [
   'they',
   'anybody',
   'one'
-]
+].filter((element, index, array) => array.indexOf(element) === index)
