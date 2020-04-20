@@ -1,6 +1,12 @@
 const winston = require('winston')
 
-const consoleTransport = new winston.transports.Console()
+const logFormat = winston.format.printf(function (info) {
+  return `${new Date().toISOString()}-${info.level}: ${info.message}`
+})
+
+const consoleTransport = new winston.transports.Console({
+  format: winston.format.combine(winston.format.colorize(), logFormat)
+})
 const myWinstonOptions = {
   transports: [consoleTransport]
 }
@@ -9,7 +15,10 @@ const logger = new winston.createLogger(myWinstonOptions)
 
 module.exports = function (app) {
   function logRequest (req, res, next) {
-    logger.info(req.url)
+    if (!req.url.startsWith('/api-docs/')) {
+      logger.info(req.url)
+    }
+
     next()
   }
   app.use(logRequest)

@@ -1,3 +1,4 @@
+// Constant data to use in tests or in case of fallback
 module.exports = [
   'to',
   'got',

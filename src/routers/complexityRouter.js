@@ -25,6 +25,10 @@ const controller = require('../controllers/complexityController')
  *               type: string
  *               required: true
  *               example: Kim loves going to the cinema
+ *       - in: query
+ *         name: mode
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         description: done

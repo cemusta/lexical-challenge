@@ -6,17 +6,17 @@ let server = null
 
 async function startServer () {
   try {
-    // await require('./services/dataService').initialize()
-
     const app = require('./app')
+
+    await require('./services/dataService').initialize()
 
     server = app.listen(config.server_port)
 
     const port = server.address().port
 
-    logger.info(`App started listening at port:${port}`)
+    logger.info(`App started listening at port: ${port}`)
   } catch (ex) {
-    logger.error('express init failed', ex)
+    logger.error('express init failed: ', ex)
   }
 }
 
