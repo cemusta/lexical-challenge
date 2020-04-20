@@ -69,19 +69,19 @@ describe('Testing complexity service', () => {
     it('should return correct ratio first sentence', async () => {
       const result = lexicalService.getRatio(first, nonLexical)
 
-      expect(result).toEqual({ overall_ld: '0.67' })
+      expect(result).toEqual({ overall_ld: 0.67 })
     })
 
     it('should return correct ratio second sentence', async () => {
       const result = lexicalService.getRatio(second, nonLexical)
 
-      expect(result).toEqual({ overall_ld: '0.63' })
+      expect(result).toEqual({ overall_ld: 0.63 })
     })
 
     it('should return correct ratio for multi sentence', async () => {
       const result = lexicalService.getRatio(multiSentence, nonLexical)
 
-      expect(result).toEqual({ overall_ld: '0.64' })
+      expect(result).toEqual({ overall_ld: 0.64 })
     })
   })
 
@@ -99,19 +99,19 @@ describe('Testing complexity service', () => {
     it('should return correct ratio for first sentence', async () => {
       const result = lexicalService.getRatioVerbose(first, nonLexical)
 
-      expect(result).toEqual({ sentence_ld: ['0.67'], overall_ld: '0.67' })
+      expect(result).toEqual({ sentence_ld: [0.67], overall_ld: 0.67 })
     })
 
     it('should return correct ratio for second sentence', async () => {
       const result = lexicalService.getRatioVerbose(second, nonLexical)
 
-      expect(result).toEqual({ sentence_ld: ['0.63'], overall_ld: '0.63' })
+      expect(result).toEqual({ sentence_ld: [0.63], overall_ld: 0.63 })
     })
 
     it('should return correct ratio multi sentence', async () => {
       const result = lexicalService.getRatioVerbose(multiSentence, nonLexical)
 
-      expect(result).toEqual({ sentence_ld: ['0.67', '0.63'], overall_ld: '0.64' })
+      expect(result).toEqual({ sentence_ld: [0.67, 0.63], overall_ld: 0.64 })
     })
   })
 })

@@ -29,7 +29,7 @@ const getRatio = (input, nonLexical) => {
 
   const ratio = (filtered.length / words.length).toFixed(2)
 
-  const result = { overall_ld: ratio }
+  const result = { overall_ld: parseFloat(ratio) }
 
   return result
 }
