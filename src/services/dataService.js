@@ -71,11 +71,66 @@ const getNonLexicals = async () => {
 
     return result
   } catch (ex) {
-    logger.error('db error', ex)
+    logger.error('db error: ', ex)
+  }
+}
+
+const getNonLexicalsRaw = async () => {
+  try {
+    if (!mongodb) {
+      return defaults
+    }
+
+    const coll = mongodb.db('lexical').collection('nonLexicals')
+    const data = await coll.find({ }).toArray()
+
+    return data
+  } catch (ex) {
+    logger.error('db error: ', ex)
+  }
+}
+
+const getToken = async (token) => {
+  try {
+    const coll = mongodb.db('lexical').collection('nonLexicals')
+    const data = await coll.findOne({ data: token })
+
+    return data
+  } catch (ex) {
+    logger.error('db error: ', ex)
+    throw ex
+  }
+}
+
+const addToken = async (token) => {
+  try {
+    const coll = mongodb.db('lexical').collection('nonLexicals')
+    const data = await coll.updateOne({ data: token }, { $set: { data: token }, $setOnInsert: { date: new Date() } }, { upsert: true })
+
+    return data
+  } catch (ex) {
+    logger.error('db error: ', ex)
+    throw ex
+  }
+}
+
+const deleteToken = async (token) => {
+  try {
+    const coll = mongodb.db('lexical').collection('nonLexicals')
+    const data = await coll.deleteOne({ data: token })
+
+    return data
+  } catch (ex) {
+    logger.error('db error: ', ex)
+    throw ex
   }
 }
 
 module.exports = {
   initialize,
-  getNonLexicals
+  getNonLexicals,
+  getNonLexicalsRaw,
+  getToken,
+  addToken,
+  deleteToken
 }

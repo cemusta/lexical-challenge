@@ -16,7 +16,7 @@ const logger = new winston.createLogger(myWinstonOptions)
 module.exports = function (app) {
   function logRequest (req, res, next) {
     if (!req.url.startsWith('/api-docs/')) {
-      logger.info(req.url)
+      logger.info(`${req.method}> ${req.url}`)
     }
 
     next()
