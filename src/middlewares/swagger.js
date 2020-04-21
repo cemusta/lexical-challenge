@@ -24,7 +24,7 @@ module.exports = function (app) {
         },
         {
           name: 'dictionary',
-          description: 'Lexical density operations'
+          description: 'Dictionary crud operations'
         }
       ]
     },
