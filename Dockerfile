@@ -12,4 +12,4 @@ EXPOSE ${PORT}
 
 RUN npm ci --production
 
-ENTRYPOINT [ "npm start" ]
+ENTRYPOINT [ "npm", "start" ]
