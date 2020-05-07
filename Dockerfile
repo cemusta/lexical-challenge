@@ -1,7 +1,7 @@
 FROM node:12-slim
 
 WORKDIR /app
-COPY ./src .
+COPY ./src ./src
 COPY ./package.json .
 COPY ./package-lock.json .
 
