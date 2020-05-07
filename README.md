@@ -12,7 +12,7 @@ Challenge required to store data in mongodb, so if you want to test mongo db par
 
 Heres the link for deployed example working on google cloud app engine standard and mongodb atlas
 
-> https://lexical-challenge.ew.r.appspot.com
+> https://lexical-challenge.appspot.com
 
 
 ## How to run
